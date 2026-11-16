@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our 2 Years ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #1b0010, #60002f, #170016);
+    color: white;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 70px 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: clamp(35px, 8vw, 65px);
+    color: #ffb6d5;
+    text-shadow: 0 0 20px #ff007f;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff007f; }
+    to { text-shadow: 0 0 35px #ff80bd; }
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ffd6e8;
+}
+
+.heart {
+    font-size: 80px;
+    margin: 30px;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+}
+
+.counter {
+    background: #ffffff15;
+    border: 1px solid #ff80bd;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 40px auto;
+    max-width: 500px;
+    backdrop-filter: blur(10px);
+}
+
+.counter h2 {
+    color: #ffb6d5;
+    margin-bottom: 15px;
+}
+
+#time {
+    font-size: 22px;
+    line-height: 1.8;
+    color: white;
+}
+
+button {
+    background: #ff3d91;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 20px;
+    box-shadow: 0 0 20px #ff007f;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #ff78b5;
+}
+
+.letter {
+    display: none;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: #fff0f5;
+    color: #850044;
+    font-size: 19px;
+    line-height: 1.8;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.gallery {
+    margin: 50px auto;
+}
+
+.gallery h2 {
+    color: #ffb6d5;
+    margin-bottom: 25px;
+}
+
+.photos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.photos img {
+    width: 220px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid pink;
+    box-shadow: 0 0 20px #ff007f;
+}
+
+footer {
+    padding: 30px;
+    color: pink;
+    font-size: 18px;
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 25px;
+    animation: float 7s linear forwards;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Happy 2nd Anniversary ❤️</h1>
+
+    <p class="subtitle">
+        Two Years of Love, Happiness & Beautiful Memories
+    </p>
+
+    <div class="heart">❤️</div>
+
+    <h2>To My Favourite Person 💗</h2>
+
+    <p style="margin-top:15px;">
+        Every moment with you is my favourite memory.
+    </p>
+
+    <div class="counter">
+        <h2>Our Love Journey ⏳</h2>
+        <div id="time">Calculating our love...</div>
+    </div>
+
+    <button onclick="showLetter()">
+        Open Your Surprise 💌
+    </button>
+
+    <div class="letter" id="letter">
+        <h2>My Love ❤️</h2>
+        <br>
+        Happy 2nd Anniversary, my sweetheart! 🥹
+        <br><br>
+        Two years ago, something beautiful started.
+        Since then, you've made my life more special
+        than words can ever explain.
+        <br><br>
+        Thank you for every smile, every hug,
+        every little moment and every memory.
+        <br><br>
+        I don't want just two years with you.
+        I want a lifetime of birthdays, anniversaries,
+        adventures and endless love.
+        <br><br>
+        You are my today, my tomorrow and my forever.
+        <br><br>
+        <h2>I LOVE YOU FOREVER ❤️🌹</h2>
+    </div>
+
+    <div class="gallery">
+        <h2>Our Beautiful Memories 📸</h2>
+
+        <div class="photos">
+            <img src="photo1.jpg" alt="Our memory 1">
+            <img src="photo2.jpg" alt="Our memory 2">
+            <img src="photo3.jpg" alt="Our memory 3">
+        </div>
+    </div>
+
+    <footer>
+        Made with endless love ❤️<br>
+        Forever & Always 🫶
+    </footer>
+
+</div>
+
+<script>
+
+// CHANGE THIS TO YOUR RELATIONSHIP START DATE
+const startDate = new Date("2024-11-16T00:00:00");
+
+function updateCounter() {
+    const now = new Date();
+    let diff = now - startDate;
+
+    if (diff < 0) {
+        document.getElementById("time").innerHTML =
+            "Our beautiful journey begins soon ❤️";
+        return;
+    }
+
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor(diff / 3600000) % 24;
+    const minutes = Math.floor(diff / 60000) % 60;
+    const seconds = Math.floor(diff / 1000) % 60;
+
+    document.getElementById("time").innerHTML =
+        days + " Days ❤️<br>" +
+        hours + " Hours 💗<br>" +
+        minutes + " Minutes 🌹<br>" +
+        seconds + " Seconds 💕";
+}
+
+setInterval(updateCounter, 1000);
+updateCounter();
+
+function showLetter() {
+    document.getElementById("letter").style.display = "block";
+    document.getElementById("letter").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// Floating hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "floating-heart";
+    heart.innerHTML = ["❤️", "💗", "💕", "💖", "🌹"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 9000);
+}
+
+setInterval(createHeart, 400);
+
+</script>
+
+</body>
+</html>
